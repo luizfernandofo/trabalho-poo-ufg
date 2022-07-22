@@ -1,4 +1,4 @@
-package br.ufg.inf.ufgmotors;
+package br.ufg.inf.poo.ufgmotors;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
