@@ -1,4 +1,4 @@
-package br.ufg.ufgmotors;
+package br.ufg.inf.ufgmotors;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

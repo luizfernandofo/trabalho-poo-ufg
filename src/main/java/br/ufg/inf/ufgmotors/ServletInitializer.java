@@ -1,4 +1,4 @@
-package br.ufg.ufgmotors;
+package br.ufg.inf.ufgmotors;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
