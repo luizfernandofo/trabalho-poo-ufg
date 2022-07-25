@@ -1,4 +1,4 @@
-package model;
+package br.ufg.inf.poo.ufgmotors.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
