@@ -1,4 +1,4 @@
-package br.ufg.inf.poo.ufgmotors.model;
+package br.ufg.inf.poo.ufgmotors.model.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,11 +8,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "clients")
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

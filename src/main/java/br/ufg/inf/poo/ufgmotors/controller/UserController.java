@@ -1,9 +1,8 @@
 package br.ufg.inf.poo.ufgmotors.controller;
 
-import br.ufg.inf.poo.ufgmotors.model.User;
+import br.ufg.inf.poo.ufgmotors.model.user.User;
 import br.ufg.inf.poo.ufgmotors.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
