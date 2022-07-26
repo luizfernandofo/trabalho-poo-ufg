@@ -19,7 +19,6 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private Boolean signedIn;
     private LocalDateTime signUpDate;
 
 }
