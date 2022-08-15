@@ -14,12 +14,12 @@ import javax.persistence.*;
 public class Cliente extends User{
 
     @Column(nullable = false)
-    String endereco;
+    private String endereco;
 
     @Column(nullable = false)
-    String cep;
+    private String cep;
 
     @Column(nullable = false)
-    String telefone;
+    private String telefone;
 
 }
