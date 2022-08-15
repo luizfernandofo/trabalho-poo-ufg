@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@MappedSuperclass
 public class User {
 
     @Id
@@ -17,8 +18,14 @@ public class User {
 
     @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false, name = "sign_up_date")
     private LocalDateTime signUpDate;
 
 }
