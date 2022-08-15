@@ -5,18 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "motos")
-public class Moto {
+public class Moto extends Veiculo{
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private EstiloEnum estilo;
 }

@@ -1,22 +1,24 @@
 package br.ufg.inf.poo.ufgmotors.controller.user;
 
 import br.ufg.inf.poo.ufgmotors.model.user.Cliente;
-import br.ufg.inf.poo.ufgmotors.model.user.User;
+import br.ufg.inf.poo.ufgmotors.repository.user.AdminRepository;
 import br.ufg.inf.poo.ufgmotors.repository.user.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpStatusCodeException;
 
 import java.time.LocalDateTime;
+import java.util.Base64;
 import java.util.Map;
 
 @RestController
-public class ClienteController {
+@RequestMapping("/users")
+public class UserController {
 
     @Autowired
     private ClienteRepository clienteRepository;
+
+    @Autowired
+    private AdminRepository adminRepository;
 
     @PostMapping("/cadastrar_cliente")
     public @ResponseBody String addNewUser(@RequestParam Map<String, String> allParams){

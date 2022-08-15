@@ -1,9 +1,12 @@
 package br.ufg.inf.poo.ufgmotors.model.veiculo;
 
 import br.ufg.inf.poo.ufgmotors.model.marca.Modelo;
+import br.ufg.inf.poo.ufgmotors.model.user.Cliente;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 
@@ -29,6 +32,10 @@ public class Veiculo {
     @Column(nullable = false)
     private String cor;
 
-    @ManyToOne
+    @ManyToOne()
     private Modelo modelo;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 }

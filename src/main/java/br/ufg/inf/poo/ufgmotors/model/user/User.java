@@ -25,7 +25,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false, name = "sign_up_date")
+    @Column(nullable = false, name = "sign_up_date")//, columnDefinition = "TIMESTAMP")
     private LocalDateTime signUpDate;
 
 }
