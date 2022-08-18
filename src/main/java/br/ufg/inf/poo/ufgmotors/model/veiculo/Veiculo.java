@@ -31,6 +31,19 @@ public class Veiculo {
 
     @Column(nullable = false)
     private String cor;
+    
+    @Column(nullable = false)
+    private Boolean Radio;
+
+    @Column(nullable = false)
+    private Boolean Tapetes;
+    
+    @Column(nullable = false)
+    private Boolean Arcondicionado;
+
+    @Column(nullable = false)
+    private Boolean AparelhoDeSom;
+    
 
     @ManyToOne()
     private Modelo modelo;
