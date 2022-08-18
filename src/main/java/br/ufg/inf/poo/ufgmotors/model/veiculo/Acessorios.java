@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "Acessorios")
-public class Acessorios extends veiculo{
+public class Acessorios extends Veiculo{
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
