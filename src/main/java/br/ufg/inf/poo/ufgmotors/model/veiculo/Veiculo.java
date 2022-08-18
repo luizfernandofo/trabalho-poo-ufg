@@ -1,14 +1,14 @@
 package br.ufg.inf.poo.ufgmotors.model.veiculo;
 
+import br.ufg.inf.poo.ufgmotors.model.acessorio.Acessorio;
 import br.ufg.inf.poo.ufgmotors.model.marca.Modelo;
 import br.ufg.inf.poo.ufgmotors.model.user.Cliente;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.lang.NonNull;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,8 +19,6 @@ public class Veiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    List <Acessorio> acessorios;
     
     @Column(nullable = false)
     private String placa;
@@ -33,9 +31,6 @@ public class Veiculo {
 
     @Column(nullable = false)
     private String cor;
-    
-   
-    
 
     @ManyToOne()
     private Modelo modelo;
@@ -43,4 +38,13 @@ public class Veiculo {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "veiculo_acessorios",
+    joinColumns =
+    @JoinColumn(name = "veiculo_id", referencedColumnName = "id"),
+    inverseJoinColumns =
+    @JoinColumn(name = "acessorio_id", referencedColumnName = "id")
+    )
+    private List<Acessorio> acessorios;
 }
