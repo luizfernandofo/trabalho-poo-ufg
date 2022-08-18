@@ -14,8 +14,6 @@ import javax.persistence.*;
 @Table(name = "Acessorios")
 public class Acessorios extends Veiculo{
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private AcessoriosEnum Acessorios;
+    Long id; String nome_acessorio;
 
 }
