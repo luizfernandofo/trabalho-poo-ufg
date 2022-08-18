@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "Acessorios")
-public class Acessorios extends Veiculo{
+public class Acessorios{
 
     Long id; String nome_acessorio;
 
