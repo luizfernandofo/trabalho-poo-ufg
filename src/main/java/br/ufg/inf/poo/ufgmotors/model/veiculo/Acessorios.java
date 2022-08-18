@@ -12,19 +12,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "Acessorios")
-public class Acessorios extends Carro{
+public class Acessorios extends veiculo{
 
     @Column(nullable = false)
-    private Boolean Radio;
-
-    @Column(nullable = false)
-    private Boolean Tapetes;
-    
-    @Column(nullable = false)
-    private Boolean Arcondicionado;
-
-    @Column(nullable = false)
-    private Boolean Aparelhdesom;
-
+    @Enumerated(EnumType.STRING)
+    private AcessoriosEnum Acessorios;
 
 }
