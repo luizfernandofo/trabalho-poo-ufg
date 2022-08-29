@@ -37,7 +37,7 @@ public class Veiculo {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+    private Long cliente_id;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "veiculo_acessorios",

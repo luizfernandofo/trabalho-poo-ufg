@@ -5,6 +5,7 @@ import br.ufg.inf.poo.ufgmotors.model.marca.Marca;
 import br.ufg.inf.poo.ufgmotors.model.marca.Modelo;
 import br.ufg.inf.poo.ufgmotors.model.user.Cliente;
 import br.ufg.inf.poo.ufgmotors.model.veiculo.Carro;
+import br.ufg.inf.poo.ufgmotors.repository.marca.MarcaRepository;
 import br.ufg.inf.poo.ufgmotors.repository.user.ClienteRepository;
 import br.ufg.inf.poo.ufgmotors.repository.veiculo.CarroRepository;
 import br.ufg.inf.poo.ufgmotors.repository.veiculo.MotoRepository;
@@ -27,18 +28,23 @@ public class VeiculoController {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    @Autowired
+    private MarcaRepository marcaRepository;
+
     @PostMapping("/cadastrar_carro")
     public @ResponseBody String cadastraNovoCarro(@RequestParam Map<String, String> allParams){
 
         Modelo modelo = new Modelo();
         Marca marca = new Marca();
+        Carro carro = new Carro();
 
-        marca.setMarca("Chevrolet");
+        marca = marcaRepository.findMarcaByMarca(allParams.get("marca"));
 
         modelo.setModelo("Corsa Classic");
         modelo.setMarca(marca);
 
-        Carro carro = new Carro();
+
+        Cliente cliente = new Cliente();
 
         carro.setPlaca(allParams.get("placa"));
         carro.setChassi(allParams.get("chassi"));
@@ -48,11 +54,11 @@ public class VeiculoController {
         carro.setCor(allParams.get("cor"));
         // erro: save ... before flushing ...
         //carro.setModelo(modelo);
-        carro.setCliente(
-                clienteRepository.findById(
-                        Long.parseLong(allParams.get("cliente_id"))
-                ).get()
-        );
+        if( !clienteRepository.existsById(Long.parseLong(allParams.get("cliente_id"))) ) {
+            return "Cliente não existe";
+        }
+
+        carro.setCliente_id(Long.parseLong(allParams.get("cliente_id")));
         carro.setCarroceria(CarroceriaEnum.HATCHBACK);
 
         carroRepository.save(carro);

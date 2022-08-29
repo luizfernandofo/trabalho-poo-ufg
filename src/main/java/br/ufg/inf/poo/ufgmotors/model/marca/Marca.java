@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,7 @@ public class Marca {
     private Long id;
 
     @OneToMany(fetch = FetchType.LAZY)
-    private List<Modelo> modelos;
+    private List<Modelo> modelos = new ArrayList<>();
 
     private String marca;
 }
