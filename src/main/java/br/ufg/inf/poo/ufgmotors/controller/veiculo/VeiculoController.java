@@ -74,12 +74,13 @@ public class VeiculoController {
 
         carro.setCarroceria(allParams.get("carroceria"));
 
-        for (String str: allParams.get("acessorios").split("\\s*,\\s*")){
-            if(acessorioRepository.existsByAcessorio(str)){
-                _acessorios.add(acessorioRepository.findAcessorioByAcessorio(str));
-            }
-            else{
-                return "Acessório " + str + " não existe no banco!";
+        if(allParams.containsKey("acessorios")) {
+            for (String str : allParams.get("acessorios").split("\\s*,\\s*")) {
+                if (acessorioRepository.existsByAcessorio(str)) {
+                    _acessorios.add(acessorioRepository.findAcessorioByAcessorio(str));
+                } else {
+                    return "Acessório " + str + " não existe no banco!";
+                }
             }
         }
 
