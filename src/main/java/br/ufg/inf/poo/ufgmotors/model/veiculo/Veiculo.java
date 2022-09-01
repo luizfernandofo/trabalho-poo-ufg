@@ -6,6 +6,8 @@ import br.ufg.inf.poo.ufgmotors.model.user.Cliente;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
 import java.util.List;
@@ -32,19 +34,12 @@ public class Veiculo {
     @Column(nullable = false)
     private String cor;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     private Modelo modelo;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
-    private Long cliente_id;
+    @Cascade(value = CascadeType.ALL)
+    private Cliente cliente_id;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "veiculo_acessorios",
-    joinColumns =
-    @JoinColumn(name = "veiculo_id", referencedColumnName = "id"),
-    inverseJoinColumns =
-    @JoinColumn(name = "acessorio_id", referencedColumnName = "id")
-    )
-    private List<Acessorio> acessorios;
 }

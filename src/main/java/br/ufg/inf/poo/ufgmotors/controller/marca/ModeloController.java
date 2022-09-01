@@ -6,6 +6,8 @@ import br.ufg.inf.poo.ufgmotors.repository.marca.ModeloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -21,11 +23,15 @@ public class ModeloController {
     @PostMapping("/cadastrar_modelo")
     public @ResponseBody String addNewModel(@RequestParam Map<String, String> allParams){
 
+        List<Modelo> modelos = new ArrayList<>();
+
         Modelo modelo = new Modelo();
 
         modelo.setModelo(allParams.get("modelo"));
 
         modelo.setMarca(marcaRepository.findMarcaByMarca(allParams.get("marca")));
+
+        modelos.add(modelo);
 
         modeloRepository.save(modelo);
 

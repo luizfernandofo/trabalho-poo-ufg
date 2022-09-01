@@ -48,8 +48,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<plugins>

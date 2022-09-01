@@ -14,15 +14,15 @@ import java.util.Map;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "marca")
+@Table(name = "marcas")
 public class Marca {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Modelo> modelos = new ArrayList<>();
-
     private String marca;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "modelo")
+    private List<Modelo> modelos = new ArrayList<>();
 }

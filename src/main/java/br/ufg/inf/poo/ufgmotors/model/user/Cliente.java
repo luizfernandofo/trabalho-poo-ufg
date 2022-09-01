@@ -24,7 +24,7 @@ public class Cliente extends User{
     @Column(nullable = false)
     private String telefone;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente_id")
     private List<Carro> carros;
 
 }

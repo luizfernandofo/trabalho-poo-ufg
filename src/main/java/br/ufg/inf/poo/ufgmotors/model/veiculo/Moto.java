@@ -15,6 +15,6 @@ import javax.persistence.*;
 public class Moto extends Veiculo{
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private EstiloEnum estilo;
+    //@Enumerated(EnumType.STRING)
+    private String estilo;
 }

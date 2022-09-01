@@ -41,10 +41,4 @@ public class UserController {
 
     }
 
-    @GetMapping(path="/todos_clientes")
-    public @ResponseBody Iterable<Cliente> getAllUsers() {
-        // This returns a JSON or XML with the users
-        return clienteRepository.findAll();
-    }
-
 }
